@@ -45,7 +45,7 @@ const slides: Slide[] = [
     headline: 'Humane Pigeon Exclusion & Pure Hygiene',
     subheading: 'Durable, transparent bird netting solutions preserving pristine cleanliness across balconies and utility shafts.',
     tag: '100% Humane Bird Control',
-    bgImage: '/images/main-images/client-grill-1.jpg',
+    bgImage: '/images/main-images/3rdimageofcarousel.jpg',
     alt: 'Anti-pigeon bird net installation in Chennai residential complex',
   },
   {
