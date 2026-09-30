@@ -1,15 +1,20 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Shield, Grid, Shirt, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Shield, Grid, Shirt, ArrowRight, CheckCircle2, Maximize2 } from 'lucide-react';
 import { ServiceItem } from '@/data/services';
 import { siteConfig } from '@/data/siteConfig';
+import ImageLightbox from '@/components/ImageLightbox';
 
 interface ServiceCardProps {
   service: ServiceItem;
 }
 
 export default function ServiceCard({ service }: ServiceCardProps) {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
   const getThumbnailImage = () => {
     return service.image || '/images/main-images/balconynet-1.jpg';
   };
@@ -26,22 +31,35 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   };
 
   return (
-    <div className="group bg-white rounded-xl border border-slate-200 hover:border-primary shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
-      {/* Thumbnail Image Header */}
-      <div className="aspect-video relative overflow-hidden bg-surface">
-        <Image
-          src={getThumbnailImage()}
-          alt={`${siteConfig.businessName} ${service.title} Chennai`}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          loading="lazy"
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-        <div className="absolute top-3 left-3 bg-secondary/90 text-highlight text-[11px] font-bold px-3 py-1 rounded-full border border-primary/40 backdrop-blur-sm flex items-center gap-1.5">
-          {renderIcon()}
-          <span>{service.categoryName}</span>
+    <>
+      <div className="group bg-white rounded-xl border border-slate-200 hover:border-primary shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+        {/* Thumbnail Image Header (Click to open fullscreen modal) */}
+        <div
+          onClick={() => setLightboxOpen(true)}
+          className="aspect-video relative overflow-hidden bg-surface cursor-pointer group/img"
+          title="Click to view full image"
+        >
+          <Image
+            src={getThumbnailImage()}
+            alt={`${siteConfig.businessName} ${service.title} Chennai`}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            loading="lazy"
+            className="object-cover group-hover/img:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute top-3 left-3 bg-secondary/90 text-highlight text-[11px] font-bold px-3 py-1 rounded-full border border-primary/40 backdrop-blur-sm flex items-center gap-1.5 z-10">
+            {renderIcon()}
+            <span>{service.categoryName}</span>
+          </div>
+
+          {/* Hover Zoom Prompt Badge */}
+          <div className="absolute inset-0 bg-secondary/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-bold text-xs backdrop-blur-[2px]">
+            <div className="p-2 rounded-full bg-primary/90 text-white shadow-lg flex items-center gap-1.5">
+              <Maximize2 className="w-4 h-4" />
+              <span>Click for Full Image</span>
+            </div>
+          </div>
         </div>
-      </div>
 
       <div className="p-6 flex-grow flex flex-col justify-between space-y-4">
         <div>
@@ -78,5 +96,16 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         </Link>
       </div>
     </div>
+
+    {/* Fullscreen Image Lightbox Modal */}
+    <ImageLightbox
+      isOpen={lightboxOpen}
+      onClose={() => setLightboxOpen(false)}
+      imageUrl={getThumbnailImage()}
+      title={service.title}
+      category={service.categoryName}
+      serviceUrl={`/services/${service.slug}`}
+    />
+  </>
   );
 }

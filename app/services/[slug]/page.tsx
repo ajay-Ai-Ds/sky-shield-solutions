@@ -19,6 +19,7 @@ import { services, ServiceItem } from '@/data/services';
 import { siteConfig } from '@/data/siteConfig';
 import ServiceCard from '@/components/ServiceCard';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import ServiceImageGallery from '@/components/ServiceImageGallery';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -196,20 +197,12 @@ export default async function ServiceDetailPage({ params }: Props) {
               Overview & Product Specifications
             </h2>
 
-            {/* Featured Service Image */}
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg border border-slate-200 group">
-              <Image
-                src={service.image}
-                alt={`${service.title} - ${siteConfig.businessName} Chennai`}
-                fill
-                sizes="(max-width: 1024px) 100vw, 66vw"
-                priority
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute bottom-3 left-3 bg-secondary/90 text-highlight text-xs font-bold px-3 py-1.5 rounded-full border border-primary/40 backdrop-blur-sm">
-                Verified Installation Image
-              </div>
-            </div>
+            {/* Featured Service Image with Click-to-Zoom */}
+            <ServiceImageGallery
+              mainImage={service.image}
+              title={service.title}
+              categoryName={service.categoryName}
+            />
 
             <div className="prose prose-slate max-w-none text-text-secondary leading-relaxed space-y-4 text-base">
               <p>{service.fullDescription}</p>
