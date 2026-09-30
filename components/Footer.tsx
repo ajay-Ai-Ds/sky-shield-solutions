@@ -32,7 +32,7 @@ export default function Footer() {
           <div className="space-y-4">
             <Link href="/" className="inline-block bg-white px-3.5 py-2 rounded-xl shadow-md border border-white/10 hover:brightness-105 transition-all">
               <Image
-                src="/images/logo/logo-navbar.png"
+                src="/images/logo/actual-logo.webp"
                 alt={siteConfig.businessName}
                 width={220}
                 height={70}

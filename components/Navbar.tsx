@@ -74,7 +74,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center group py-0.5">
             <Image
-              src="/images/logo/logo-navbar.png"
+              src="/images/logo/actual-logo.webp"
               alt="Sky Shield Solutions - Safety Nets & Invisible Grills"
               width={260}
               height={90}

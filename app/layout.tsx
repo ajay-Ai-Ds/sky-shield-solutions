@@ -71,7 +71,7 @@ const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'HomeAndConstructionBusiness',
   name: siteConfig.businessName,
-  image: `https://${siteConfig.domain}/images/logo/logo-horizontal.png`,
+  image: `https://${siteConfig.domain}/images/logo/actual-logo.webp`,
   telephone: [siteConfig.phone, siteConfig.phoneSecondary],
   email: siteConfig.email,
   url: `https://${siteConfig.domain}`,
