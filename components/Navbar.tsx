@@ -71,15 +71,15 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 flex items-center justify-between">
-          {/* Logo & Prominent Business Name */}
-          <Link href="/" className="flex items-center gap-2 group">
+          {/* Logo */}
+          <Link href="/" className="flex items-center group py-0.5">
             <Image
-              src="/images/logo/logo-navbar.svg"
-              alt="Sky Shield Safety Nets & Invisible Grills"
+              src="/images/logo/logo-navbar.png"
+              alt="Sky Shield Solutions - Safety Nets & Invisible Grills"
               width={260}
-              height={60}
+              height={90}
               priority
-              className="h-11 sm:h-13 md:h-14 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-11 sm:h-13 md:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
             />
           </Link>
 

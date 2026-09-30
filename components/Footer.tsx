@@ -30,14 +30,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Column 1: Company Info */}
           <div className="space-y-4">
-            <Link href="/" className="inline-block">
+            <Link href="/" className="inline-block bg-white px-3.5 py-2 rounded-xl shadow-md border border-white/10 hover:brightness-105 transition-all">
               <Image
-                src="/images/logo/logo-footer.svg"
+                src="/images/logo/logo-navbar.png"
                 alt={siteConfig.businessName}
-                width={200}
-                height={48}
+                width={220}
+                height={70}
                 loading="lazy"
-                className="h-11 w-auto object-contain"
+                className="h-10 w-auto object-contain"
               />
             </Link>
             <p className="text-slate-300 text-sm leading-relaxed">
