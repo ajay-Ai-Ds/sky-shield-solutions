@@ -1089,53 +1089,61 @@ export default function Home() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-secondary uppercase tracking-wider mb-1.5">
+                    <label htmlFor="quote-name" className="block text-xs font-bold text-secondary uppercase tracking-wider mb-1.5">
                       Full Name *
                     </label>
                     <input
+                      id="quote-name"
                       type="text"
                       required
                       placeholder="e.g. Suresh Raman"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm text-text-main"
+                      autoComplete="name"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-secondary uppercase tracking-wider mb-1.5">
+                    <label htmlFor="quote-phone" className="block text-xs font-bold text-secondary uppercase tracking-wider mb-1.5">
                       Phone Number *
                     </label>
                     <input
+                      id="quote-phone"
                       type="tel"
                       required
                       placeholder="e.g. 9876543210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm text-text-main"
+                      autoComplete="tel"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-secondary uppercase tracking-wider mb-1.5">
+                    <label htmlFor="quote-email" className="block text-xs font-bold text-secondary uppercase tracking-wider mb-1.5">
                       Email Address
                     </label>
                     <input
+                      id="quote-email"
                       type="email"
                       placeholder="name@gmail.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm text-text-main"
+                      autoComplete="email"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-secondary uppercase tracking-wider mb-1.5">
+                    <label htmlFor="quote-service" className="block text-xs font-bold text-secondary uppercase tracking-wider mb-1.5">
                       Service Requirement *
                     </label>
                     <select
+                      id="quote-service"
+                      aria-label="Select Service Requirement"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm text-text-main bg-white"
@@ -1150,10 +1158,11 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-secondary uppercase tracking-wider mb-1.5">
+                  <label htmlFor="quote-message" className="block text-xs font-bold text-secondary uppercase tracking-wider mb-1.5">
                     Location &amp; Balcony / Window Dimensions
                   </label>
                   <textarea
+                    id="quote-message"
                     rows={3}
                     placeholder="e.g. Need balcony safety nets in Pallikaranai 8th floor. Approx 10x6 ft."
                     value={formData.message}

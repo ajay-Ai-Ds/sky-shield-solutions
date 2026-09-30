@@ -184,53 +184,61 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold text-secondary uppercase tracking-wider mb-2">
+                    <label htmlFor="contact-name" className="block text-xs font-bold text-secondary uppercase tracking-wider mb-2">
                       Full Name *
                     </label>
                     <input
+                      id="contact-name"
                       type="text"
                       required
                       placeholder="e.g., Rajesh Kumar"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm text-text-main"
+                      autoComplete="name"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-secondary uppercase tracking-wider mb-2">
+                    <label htmlFor="contact-phone" className="block text-xs font-bold text-secondary uppercase tracking-wider mb-2">
                       Phone Number *
                     </label>
                     <input
+                      id="contact-phone"
                       type="tel"
                       required
                       placeholder="e.g., 9876543210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm text-text-main"
+                      autoComplete="tel"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold text-secondary uppercase tracking-wider mb-2">
+                    <label htmlFor="contact-email" className="block text-xs font-bold text-secondary uppercase tracking-wider mb-2">
                       Email Address
                     </label>
                     <input
+                      id="contact-email"
                       type="email"
                       placeholder="your.email@gmail.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm text-text-main"
+                      autoComplete="email"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-secondary uppercase tracking-wider mb-2">
+                    <label htmlFor="contact-service" className="block text-xs font-bold text-secondary uppercase tracking-wider mb-2">
                       Service Interested *
                     </label>
                     <select
+                      id="contact-service"
+                      aria-label="Select Service Interested"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm text-text-main bg-white"
@@ -245,10 +253,11 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-secondary uppercase tracking-wider mb-2">
+                  <label htmlFor="contact-message" className="block text-xs font-bold text-secondary uppercase tracking-wider mb-2">
                     Locality / Message / Measurements
                   </label>
                   <textarea
+                    id="contact-message"
                     rows={4}
                     placeholder="e.g. Need balcony safety net in Anna Nagar 4th floor balcony. Please schedule inspection."
                     value={formData.message}
