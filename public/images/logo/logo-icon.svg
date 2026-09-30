@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E88C7" />
+      <stop offset="100%" stop-color="#2C3E50" />
+    </linearGradient>
+    <linearGradient id="skyWingGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#A8D5E8" />
+      <stop offset="50%" stop-color="#1E88C7" />
+      <stop offset="100%" stop-color="#FFFFFF" />
+    </linearGradient>
+    <linearGradient id="innerShieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2C3E50" />
+      <stop offset="100%" stop-color="#1E88C7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Shield Base -->
+  <path d="M60 8 L104 24 C104 68 84 98 60 114 C36 98 16 68 16 24 Z" 
+        fill="url(#shieldGrad)"/>
+  
+  <!-- Outer Shield Trim -->
+  <path d="M60 14 L98 28 C98 66 80 93 60 107 C40 93 22 66 22 28 Z" 
+        stroke="#A8D5E8" 
+        stroke-width="2.5" 
+        stroke-opacity="0.6" 
+        fill="none"/>
+
+  <!-- Sky Arc / Upward Protective Wings -->
+  <!-- Left Wing -->
+  <path d="M60 22 C48 38 34 56 34 78 C44 70 54 58 60 46 Z" 
+        fill="url(#skyWingGrad)" 
+        opacity="0.95"/>
+
+  <!-- Right Wing -->
+  <path d="M60 22 C72 38 86 56 86 78 C76 70 66 58 60 46 Z" 
+        fill="url(#skyWingGrad)" 
+        opacity="0.95"/>
+
+  <!-- Architectural Safety Cable Lines (Invisible Grill Motif) -->
+  <line x1="44" y1="36" x2="44" y2="82" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.75"/>
+  <line x1="52" y1="28" x2="52" y2="90" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.75"/>
+  <line x1="60" y1="22" x2="60" y2="98" stroke="#FFFFFF" stroke-width="2" opacity="0.9"/>
+  <line x1="68" y1="28" x2="68" y2="90" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.75"/>
+  <line x1="76" y1="36" x2="76" y2="82" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.75"/>
+
+  <!-- Center Core Safety Emblem -->
+  <path d="M60 46 L74 62 C74 78 68 88 60 96 C52 88 46 78 46 62 Z" 
+        fill="#2C3E50" 
+        stroke="#A8D5E8" 
+        stroke-width="1.5"/>
+  
+  <!-- Central Shield Light Star / Apex -->
+  <polygon points="60,52 63,60 71,60 65,65 67,73 60,68 53,73 55,65 49,60 57,60" fill="#A8D5E8"/>
+</svg>

@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1E88C7;
+  --color-primary-dark: #166ba0;
+  --color-primary-light: #3aa0dc;
+  --color-secondary: #2C3E50;
+  --color-secondary-dark: #1A252F;
+  --color-secondary-light: #3e5871;
+  --color-accent: #2C3E50;
+  --color-accent-light: #A8D5E8;
+  --color-accent-dark: #1A252F;
+  --color-highlight: #A8D5E8;
+  --color-background: #FFFFFF;
+  --color-surface: #FAFAFA;
+  --color-surface-card: #F0F7FB;
+  --color-text-main: #1E293B;
+  --color-text-secondary: #4A4A4A;
+  --color-text-muted: #64748B;
+  --color-whatsapp: #25D366;
+
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.bg-cta-gradient {
+  background: linear-gradient(135deg, #1E88C7, #2C3E50);
+}
+
+.bg-cta-gradient-hover:hover {
+  background: linear-gradient(135deg, #166ba0, #1A252F);
+}
+
+.bg-header-gradient {
+  background: linear-gradient(135deg, #2C3E50 0%, #1E88C7 100%);
+}
+
