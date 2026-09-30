@@ -133,25 +133,26 @@ export default function HeroCarousel() {
         })}
       </div>
 
-      {/* Natural Dark Gradient Overlay for Maximum Text Contrast (Zero Color Distortion) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/65 z-10 pointer-events-none" />
+      {/* Natural Dark Gradient Overlay for Maximum Text Contrast */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/85 z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-black/25 z-10 pointer-events-none" />
 
       {/* Content Container */}
       <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 text-center py-14 sm:py-18 md:py-24">
         <div className="space-y-5 sm:space-y-6 max-w-4xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/80 border border-primary/40 text-highlight text-xs font-bold uppercase tracking-wider shadow-lg backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-primary/60 text-highlight text-xs font-bold uppercase tracking-wider shadow-2xl backdrop-blur-md">
             <ShieldCheck className="w-4 h-4 text-primary-light shrink-0" />
             <span>{slides[currentSlide].tag}</span>
           </div>
 
-          {/* Heading */}
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15] drop-shadow-[0_3px_10px_rgba(0,0,0,0.85)] min-h-[2.4em] sm:min-h-[2.3em] flex items-center justify-center">
+          {/* Heading - Solid, Punchy, Ultra-Crisp White */}
+          <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] min-h-[2.4em] sm:min-h-[2.3em] flex items-center justify-center">
             {slides[currentSlide].headline}
           </h1>
 
           {/* Subheading */}
-          <p className="text-sm sm:text-lg md:text-xl text-slate-100 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)] min-h-[3em] sm:min-h-[2.5em] flex items-center justify-center">
+          <p className="text-base sm:text-lg md:text-xl text-slate-100 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] min-h-[3em] sm:min-h-[2.5em] flex items-center justify-center">
             {slides[currentSlide].subheading}
           </p>
 
