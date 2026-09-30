@@ -45,7 +45,11 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             loading="lazy"
-            className="object-cover group-hover/img:scale-105 transition-transform duration-500"
+            className={`object-cover ${
+              service.slug === 'shade-nets' || service.image?.includes('shade-net')
+                ? 'object-top'
+                : 'object-center'
+            } group-hover/img:scale-105 transition-transform duration-500`}
           />
           <div className="absolute top-3 left-3 bg-secondary/90 text-highlight text-[11px] font-bold px-3 py-1 rounded-full border border-primary/40 backdrop-blur-sm flex items-center gap-1.5 z-10">
             {renderIcon()}

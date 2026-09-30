@@ -393,7 +393,11 @@ export default async function ServiceDetailPage({ params }: Props) {
                     alt={`${item.title} ${siteConfig.businessName}`}
                     fill
                     sizes="(max-width: 640px) 50vw, 25vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className={`object-cover ${
+                      item.slug === 'shade-nets' || item.image?.includes('shade-net')
+                        ? 'object-top'
+                        : 'object-center'
+                    } group-hover:scale-105 transition-transform duration-500`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/20 to-transparent p-3 flex flex-col justify-end">
                     <span className="text-highlight text-[10px] font-bold uppercase tracking-wider">

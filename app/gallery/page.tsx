@@ -149,7 +149,9 @@ export default function GalleryPage() {
                 fill
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 loading="lazy"
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                className={`object-cover ${
+                  item.image?.includes('shade-net') ? 'object-top' : 'object-center'
+                } group-hover:scale-105 transition-transform duration-500`}
               />
 
               {/* Gradient Overlay & Info */}

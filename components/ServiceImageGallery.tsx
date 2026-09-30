@@ -42,7 +42,9 @@ export default function ServiceImageGallery({
           fill
           sizes="(max-width: 1024px) 100vw, 66vw"
           priority
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          className={`object-cover ${
+            mainImage.includes('shade-net') ? 'object-top' : 'object-center'
+          } group-hover:scale-105 transition-transform duration-500`}
         />
         <div className="absolute bottom-3 left-3 bg-secondary/90 text-highlight text-xs font-bold px-3 py-1.5 rounded-full border border-primary/40 backdrop-blur-sm z-10">
           Verified Installation Image
