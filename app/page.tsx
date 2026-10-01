@@ -222,20 +222,6 @@ export default function Home() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
-  // Form state
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    service: services[0].title,
-    message: '',
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
 
   const filteredServices =
     servicesCategory === 'all'
@@ -964,11 +950,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 12. CONTACT FORM & LOCATION MAP SECTION */}
+      {/* 12. CONTACT & LOCATION MAP SECTION */}
       <section id="contact" className="scroll-mt-24 max-w-7xl mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Contact Details Card */}
-          <div className="lg:col-span-5 space-y-8 bg-secondary text-white p-8 sm:p-10 rounded-2xl border-2 border-primary shadow-2xl relative overflow-hidden">
+          <div className="lg:col-span-6 space-y-8 bg-secondary text-white p-8 sm:p-10 rounded-2xl border-2 border-primary shadow-2xl relative overflow-hidden flex flex-col justify-between">
             <div className="space-y-4">
               <span className="text-highlight font-bold text-xs uppercase tracking-wider block">
                 Get In Touch
@@ -984,7 +970,7 @@ export default function Home() {
             <div className="space-y-6 pt-4 border-t border-slate-700">
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-primary/20 rounded-lg text-highlight border border-highlight/30">
-                  <MapPin className="w-5 h-5" />
+                  <MapPin className="w-5 h-5 shrink-0" />
                 </div>
                 <div>
                   <h4 className="text-xs font-bold uppercase text-highlight">Headquarters Address</h4>
@@ -994,22 +980,24 @@ export default function Home() {
 
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-primary/20 rounded-lg text-highlight border border-highlight/30">
-                  <Phone className="w-5 h-5" />
+                  <Phone className="w-5 h-5 shrink-0" />
                 </div>
                 <div>
                   <h4 className="text-xs font-bold uppercase text-highlight">Phone Numbers</h4>
-                  <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`} className="text-sm font-bold text-white hover:text-highlight block">
-                    {siteConfig.phone} (Primary)
-                  </a>
-                  <a href={`tel:${siteConfig.phoneSecondary.replace(/\s+/g, '')}`} className="text-xs text-slate-300 hover:text-highlight block mt-0.5">
-                    {siteConfig.phoneSecondary} (Secondary)
-                  </a>
+                  <div className="flex flex-wrap gap-x-4 gap-y-1 mt-0.5">
+                    <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`} className="text-sm font-bold text-white hover:text-highlight">
+                      {siteConfig.phone} (Primary)
+                    </a>
+                    <a href={`tel:${siteConfig.phoneSecondary.replace(/\s+/g, '')}`} className="text-sm text-slate-300 hover:text-highlight">
+                      {siteConfig.phoneSecondary} (Secondary)
+                    </a>
+                  </div>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-whatsapp/20 rounded-lg text-whatsapp border border-whatsapp/30">
-                  <WhatsAppIcon className="w-5 h-5" />
+                  <WhatsAppIcon className="w-5 h-5 shrink-0" />
                 </div>
                 <div>
                   <h4 className="text-xs font-bold uppercase text-whatsapp">WhatsApp Consultation</h4>
@@ -1017,7 +1005,7 @@ export default function Home() {
                     href={`https://wa.me/${siteConfig.whatsappNumber}?text=Hi,%20I'm%20interested%20in%20your%20services.%20Please%20share%20details.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-bold text-whatsapp hover:underline"
+                    className="text-sm font-bold text-whatsapp hover:underline block mt-0.5"
                   >
                     Chat on WhatsApp Now
                   </a>
@@ -1026,165 +1014,64 @@ export default function Home() {
 
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-primary/20 rounded-lg text-highlight border border-highlight/30">
-                  <Mail className="w-5 h-5" />
+                  <Mail className="w-5 h-5 shrink-0" />
                 </div>
                 <div>
                   <h4 className="text-xs font-bold uppercase text-highlight">Email Address</h4>
-                  <a href={`mailto:${siteConfig.email}`} className="text-sm text-slate-200 hover:text-highlight break-all">
+                  <a href={`mailto:${siteConfig.email}`} className="text-sm text-slate-200 hover:text-highlight break-all block mt-0.5">
                     {siteConfig.email}
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* Google Map Embed inside card */}
-            <div className="pt-4">
-              <span className="text-xs font-bold uppercase text-highlight block mb-2">Location Map</span>
-              <div className="w-full h-44 rounded-xl overflow-hidden border border-highlight/30 shadow-md bg-secondary-dark relative">
-                <iframe
-                  title={`${siteConfig.businessName} Location Map`}
-                  src={siteConfig.mapEmbedUrl}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={false}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
+            {/* Direct Action Buttons */}
+            <div className="pt-6 border-t border-slate-700 flex flex-col sm:flex-row gap-4">
+              <a
+                href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
+                className="flex-1 py-3.5 px-5 bg-cta-gradient bg-cta-gradient-hover text-white font-semibold rounded-lg shadow-md text-sm flex items-center justify-center gap-2 border border-white/20 transition-all text-center"
+              >
+                <Phone className="w-4 h-4" />
+                <span>Call Directly</span>
+              </a>
+              <a
+                href={`https://wa.me/${siteConfig.whatsappNumber}?text=Hi,%20I'm%20interested%20in%20your%20services.%20Please%20share%20details.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 py-3.5 px-5 bg-whatsapp hover:bg-whatsapp-dark text-white font-semibold rounded-lg shadow-md text-sm flex items-center justify-center gap-2 transition-colors text-center"
+              >
+                <WhatsAppIcon className="w-4 h-4" />
+                <span>WhatsApp Quote</span>
+              </a>
             </div>
           </div>
 
-          {/* Interactive Inspection Form */}
-          <div className="lg:col-span-7 bg-white p-8 sm:p-10 rounded-2xl border border-slate-200 shadow-xl space-y-6">
-            <div>
+          {/* Location Map Card */}
+          <div className="lg:col-span-6 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xl flex flex-col justify-between">
+            <div className="mb-4">
               <span className="text-primary font-semibold text-xs uppercase tracking-wider block">
-                Free Doorstep Survey
+                Find Us in Chennai
               </span>
-              <h2 className="font-serif text-3xl font-bold text-secondary">
-                Request On-Site Precision Survey
-              </h2>
+              <h3 className="font-serif text-2xl font-bold text-secondary mt-1">
+                Workshop &amp; Service Headquarters
+              </h3>
               <p className="text-text-secondary text-sm mt-1">
-                Provide your details below and our technical team will reach out within 30 minutes.
+                Centrally located in Pallikaranai, providing doorstep site evaluations and installations across Chennai.
               </p>
             </div>
 
-            {submitted ? (
-              <div className="p-8 bg-surface border-2 border-primary rounded-xl text-center space-y-4">
-                <CheckCircle2 className="w-12 h-12 text-primary mx-auto" />
-                <h3 className="font-serif text-2xl font-bold text-secondary">
-                  Site Visit Request Confirmed!
-                </h3>
-                <p className="text-text-secondary text-sm max-w-md mx-auto">
-                  Thank you, <span className="font-semibold text-secondary">{formData.name}</span>. Our technician will contact you at <span className="font-semibold text-secondary">{formData.phone}</span> to schedule your free inspection.
-                </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="px-6 py-2 bg-secondary text-white text-xs font-semibold rounded-lg hover:bg-secondary-dark transition-colors"
-                >
-                  Submit Another Request
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="quote-name" className="block text-xs font-bold text-secondary uppercase tracking-wider mb-1.5">
-                      Full Name *
-                    </label>
-                    <input
-                      id="quote-name"
-                      type="text"
-                      required
-                      placeholder="e.g. Suresh Raman"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm text-text-main"
-                      autoComplete="name"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="quote-phone" className="block text-xs font-bold text-secondary uppercase tracking-wider mb-1.5">
-                      Phone Number *
-                    </label>
-                    <input
-                      id="quote-phone"
-                      type="tel"
-                      required
-                      placeholder="e.g. 9876543210"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm text-text-main"
-                      autoComplete="tel"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="quote-email" className="block text-xs font-bold text-secondary uppercase tracking-wider mb-1.5">
-                      Email Address
-                    </label>
-                    <input
-                      id="quote-email"
-                      type="email"
-                      placeholder="name@gmail.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm text-text-main"
-                      autoComplete="email"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="quote-service" className="block text-xs font-bold text-secondary uppercase tracking-wider mb-1.5">
-                      Service Requirement *
-                    </label>
-                    <select
-                      id="quote-service"
-                      aria-label="Select Service Requirement"
-                      value={formData.service}
-                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm text-text-main bg-white"
-                    >
-                      {services.map((svc) => (
-                        <option key={svc.id} value={svc.title}>
-                          {svc.title} ({svc.categoryName})
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="quote-message" className="block text-xs font-bold text-secondary uppercase tracking-wider mb-1.5">
-                    Location &amp; Balcony / Window Dimensions
-                  </label>
-                  <textarea
-                    id="quote-message"
-                    rows={3}
-                    placeholder="e.g. Need balcony safety nets in Pallikaranai 8th floor. Approx 10x6 ft."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-sm text-text-main"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-4 px-6 bg-cta-gradient bg-cta-gradient-hover text-white font-semibold rounded-lg shadow-md text-base flex items-center justify-center gap-2 border border-white/20 transition-all cursor-pointer"
-                >
-                  <Send className="w-5 h-5" />
-                  <span>Request Free Measurement Visit</span>
-                </button>
-
-                <div className="pt-2 flex items-center justify-center gap-2 text-xs text-text-muted font-medium">
-                  <Clock className="w-3.5 h-3.5 text-primary shrink-0" />
-                  <span>Average callback time: 30 minutes during working hours</span>
-                </div>
-              </form>
-            )}
+            <div className="w-full h-80 sm:h-96 lg:h-full min-h-[340px] rounded-xl overflow-hidden border border-slate-200 shadow-inner bg-secondary-dark relative">
+              <iframe
+                title={`${siteConfig.businessName} Location Map`}
+                src={siteConfig.mapEmbedUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
         </div>
       </section>
